@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     "users",
     "borrowings",
     "payments",
-    "notifications",
     "rest_framework",
 ]
 
