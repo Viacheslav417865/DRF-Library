@@ -5,7 +5,7 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 from rest_framework.test import APIRequestFactory, APITestCase
-
+from decouple import config
 from books.models import Book
 from borrowings.models import Borrowing
 from payments.models import Payment
@@ -37,7 +37,7 @@ class CreateStripeSessionForBorrowingTests(APITestCase):
         self.request = self.factory.get(reverse("borrowing-list-create"))
         self.request.user = self.user
 
-        settings.STRIPE_SECRET_KEY = "sk_test_4eC39HqLyjWDarjtT1zdp7dc"
+        settings.STRIPE_SECRET_KEY = config("STRIPE_SECRET_KEY")
 
     @patch("stripe.checkout.Session.create")
     def test_create_stripe_session_for_borrowing_success(
