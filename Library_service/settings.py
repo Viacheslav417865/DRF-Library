@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "borrowings",
     "payments",
     "rest_framework",
+    "drf_spectacular",
 ]
 
 MIDDLEWARE = [
