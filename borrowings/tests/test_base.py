@@ -10,12 +10,12 @@ class BaseBorrowingTest(APITestCase):
     def setUp(self):
         self.user = User.objects.create_user(
             email="user@user.com",
-            password="123test1233",
+            password="*****",
             is_staff=False
         )
         self.admin = User.objects.create_superuser(
             email="admin@admin.com",
-            password="123admin123"
+            password="*****"
         )
         self.book = Book.objects.create(
             title="Test Book",
