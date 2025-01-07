@@ -1,7 +1,5 @@
 from datetime import datetime
-
 from celery import shared_task
-
 from borrowings.models import Borrowing
 from botMessage import send_report, send_message
 
