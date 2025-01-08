@@ -1,6 +1,9 @@
 from datetime import timedelta
 from decimal import Decimal
+<<<<<<< HEAD
 
+=======
+>>>>>>> 863a826a3a493648b64bd3a37503585cebbe1549
 from celery import shared_task
 from django.db.models import Sum, Count
 from django.utils import timezone
