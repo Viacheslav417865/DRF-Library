@@ -5,10 +5,10 @@ from celery import Celery
 # Set the default Django settings module for the 'celery' program.
 os.environ.setdefault(
     "DJANGO_SETTINGS_MODULE",
-    "library_service.settings"
+    "Library_service.settings"
 )
 
-app = Celery("library_service")
+app = Celery("Library_service")
 
 # Using a string here means the worker doesn't have to serialize
 # the configuration object to child processes.
@@ -17,7 +17,8 @@ app = Celery("library_service")
 app.config_from_object("django.conf:settings", namespace="CELERY")
 
 # Load task modules from all registered Django apps.
-app.autodiscover_tasks()
+
+app.autodiscover_tasks(["Library_service"])
 
 
 @app.task(bind=True, ignore_result=True)

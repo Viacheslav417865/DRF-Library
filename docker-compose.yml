@@ -1,6 +1,11 @@
+version: "3.8"
+
 services:
   redis:
     image: redis:7.2.4-alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
 
   django:
     container_name: django
@@ -30,22 +35,22 @@ services:
   celery:
     container_name: celery
     build: .
-    command: celery -A library_service worker -l INFO
+    command: celery -A Library_service worker -l info
     volumes:
       - .:/app
     depends_on:
       - django
-      - db
+      - redis
 
   celery-beat:
     container_name: celery-beat
     build: .
-    command: celery -A library_service beat -l INFO
+    command: celery -A Library_service beat -l info
     volumes:
       - .:/app
     depends_on:
       - django
-      - db
+      - redis
 
   flower:
     container_name: flower
